@@ -34,7 +34,7 @@ fs.readFile("./db/db.json", "utf8", function(err, data) {
     }
 
     //API ROUTES
-    // Populate the left column
+    // View notes on the sidebar
     app.get("/api/notes", function(req, res) {
         res.json(notes);
     });
@@ -52,20 +52,7 @@ fs.readFile("./db/db.json", "utf8", function(err, data) {
     });
 
     // Deleting a note with a specific ID
-
     app.delete("/api/notes/:id", function(req, res) {
-
-        // splice function returns removed item
-        notes.splice(req.params.id, 1);
-        var chosen = req.params.id;
-        console.log(chosen);
-        for (var i = 0; i < notes.length; i++) {
-            if (chosen === notes[i].routeName) {
-                console.log("Deleted note" + notes[i].title);
-                return res.json(notes[i]);
-            }
-        }
-        return res.json(false);
 
     });
 
